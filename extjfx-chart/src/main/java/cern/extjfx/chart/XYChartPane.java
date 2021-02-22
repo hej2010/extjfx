@@ -18,9 +18,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.sun.javafx.css.converters.BooleanConverter;
-import com.sun.javafx.css.converters.EnumConverter;
-
 import cern.extjfx.chart.plugins.Panner;
 import cern.extjfx.chart.plugins.Zoomer;
 import javafx.application.Platform;
@@ -40,6 +37,8 @@ import javafx.css.Styleable;
 import javafx.css.StyleableBooleanProperty;
 import javafx.css.StyleableObjectProperty;
 import javafx.css.StyleableProperty;
+import javafx.css.converter.BooleanConverter;
+import javafx.css.converter.EnumConverter;
 import javafx.geometry.BoundingBox;
 import javafx.geometry.Bounds;
 import javafx.geometry.Orientation;

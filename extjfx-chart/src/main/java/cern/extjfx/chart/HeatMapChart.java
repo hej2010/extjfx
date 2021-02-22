@@ -26,8 +26,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-import com.sun.javafx.css.converters.BooleanConverter;
-
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.property.BooleanProperty;
@@ -39,6 +37,7 @@ import javafx.css.CssMetaData;
 import javafx.css.Styleable;
 import javafx.css.StyleableBooleanProperty;
 import javafx.css.StyleableProperty;
+import javafx.css.converter.BooleanConverter;
 import javafx.geometry.Bounds;
 import javafx.geometry.Side;
 import javafx.scene.chart.Axis;
@@ -88,7 +87,7 @@ import javafx.scene.shape.Rectangle;
  *     primaryStage.show();
  * }
  * }</pre>
- *
+ * <p>
  * The colors to be used for values encoding can be specified via {@link #colorGradientProperty()} which by default is
  * initialized to {@link ColorGradient#RAINBOW}.
  * <p>
@@ -162,7 +161,7 @@ public class HeatMapChart<X, Y> extends Chart {
 
     /**
      * Returns bounds of plot area in the it's untransformed local coordinate space.
-     * 
+     *
      * @return plot area bounds
      */
     public Bounds getPlotAreaBoundsInLocal() {
@@ -171,7 +170,7 @@ public class HeatMapChart<X, Y> extends Chart {
 
     /**
      * Returns rectangular bounds of this chart's plot area which include its transforms.
-     * 
+     *
      * @return plot area bounds
      */
     public Bounds getPlotAreaBoundsInParent() {
@@ -359,7 +358,7 @@ public class HeatMapChart<X, Y> extends Chart {
      * Indicates how the chart will be drawn in terms of it's origin point - i.e. where the data at [0,0] index will be
      * located, as defined by {@link DataOriginPointLocation}. By default the origin point is located at
      * {@link DataOriginPointLocation#TOP_LEFT}.
-     * 
+     *
      * @return dataOriginPointLocation property
      */
     public ObjectProperty<DataOriginPointLocation> dataOriginPointLocationProperty() {
@@ -368,7 +367,7 @@ public class HeatMapChart<X, Y> extends Chart {
 
     /**
      * Returns the value of the {@link #dataOriginPointLocationProperty()}
-     * 
+     *
      * @return the current location of the chart's origin point
      */
     public DataOriginPointLocation getDataOriginPoint() {
@@ -377,7 +376,7 @@ public class HeatMapChart<X, Y> extends Chart {
 
     /**
      * Sets the value of the {@link #dataOriginPointLocationProperty()}
-     * 
+     *
      * @param originPointLocation new location of the chart's origin point
      */
     public void setDataOriginPointLocation(DataOriginPointLocation originPointLocation) {
@@ -882,8 +881,8 @@ public class HeatMapChart<X, Y> extends Chart {
          * @param xValues x coordinates
          * @param yValues y coordinates
          * @param zValues z values where first dimension should be equal to x coordinates length and second dimension to
-         *            the y coordinates length; the value at [0, 0] index corresponds to the bottom-left corner of the
-         *            unless specified differently by {@link HeatMapChart#dataOriginPointLocationProperty()}
+         *                the y coordinates length; the value at [0, 0] index corresponds to the bottom-left corner of the
+         *                unless specified differently by {@link HeatMapChart#dataOriginPointLocationProperty()}
          */
         public final void set(X[] xValues, Y[] yValues, double[][] zValues) {
             requireNonNull(xValues, "xValues must not be null");
@@ -893,7 +892,7 @@ public class HeatMapChart<X, Y> extends Chart {
             this.xValues = xValues;
             this.yValues = yValues;
             this.zValues = zValues;
-            
+
             fireInvalidated();
         }
     }
@@ -935,7 +934,7 @@ public class HeatMapChart<X, Y> extends Chart {
          * Creates a new instance of ColorGradient.
          *
          * @param stops the gradient's color specification; should contain at least two stops with offsets between 0.0
-         *            and 1.0
+         *              and 1.0
          * @see #getStops()
          */
         public ColorGradient(Stop... stops) {
@@ -946,8 +945,8 @@ public class HeatMapChart<X, Y> extends Chart {
         /**
          * Returns the gradient stops.
          *
-         * @see LinearGradient#getStops()
          * @return gradient stops
+         * @see LinearGradient#getStops()
          */
         public List<Stop> getStops() {
             return stops;
